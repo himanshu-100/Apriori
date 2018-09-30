@@ -197,6 +197,8 @@ int main()
 {
 	ifstream in;
 	in.open("transaction.txt");
+	ofstream out;
+	out.open("ans.txt");
 	string s;
 	int ctxn=0;
 	set<int> its1;
@@ -253,7 +255,6 @@ int main()
 			lno++;
 			if(lno%m==0)
 			{
-//				cout<<"a";
 				vector<int> pos;
 				f(dc.size())
 				{
@@ -325,35 +326,20 @@ int main()
 					ds.erase(ds.begin()+fill[i]-eh);
 					eh++;
 				}
-//				f(dc.size())
-//				{
-//					for(int j=0;j<dc[i].items.size();j++)
-//					{
-//						cout<<dc[i].items[j]<<" ";
-//					}
-//					cout<<endl;
-//				}
-//				f(ds.size())
-//				{
-//					for(int j=0;j<ds[i].items.size();j++)
-//					{
-//						cout<<ds[i].items[j]<<" ";
-//					}
-//					cout<<endl;
-//				}
 			}
 		}
 		e++;
 		in.close();
 	}
-	cout<<"Frequent itemsets are- \n";
+	out<<"Frequent itemsets are- \n";
 	f(ss.size())
 	{
 		for(int j=0;j<ss[i].items.size();j++)
 		{
-			cout<<ss[i].items[j]<<" ";	
-		}cout<<endl;
+			out<<ss[i].items[j]<<" ";	
+		}out<<endl;
 	}
+	out.close();
 	return 0;
 }
 
